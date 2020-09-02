@@ -1,11 +1,11 @@
-# prom-tmpl
+# Prometheus.Client.HealthChecks
 
 ## Contribute
 
 Contributions to the package are always welcome!
 
-* Report any bugs or issues you find on the [issue tracker](https://github.com/PrometheusClientNet/prom-tmpl/issues).
-* You can grab the source code at the package's [git repository](https://github.com/PrometheusClientNet/prom-tmpl).
+* Report any bugs or issues you find on the [issue tracker](https://github.com/PrometheusClientNet/Prometheus.Client.HealthChecks/issues).
+* You can grab the source code at the package's [git repository](https://github.com/PrometheusClientNet/Prometheus.Client.HealthChecks).
 
 ## Support
 

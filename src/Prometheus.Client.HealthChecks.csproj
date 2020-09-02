@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>HealthChecks middleware for the Prometheus.Client</Description>
+    <Copyright>2020 © Serge K, Oleksandr Poliakov</Copyright>
+    <AssemblyTitle>Prometheus.Client.HealthChecks</AssemblyTitle>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <Authors>Serge K, Oleksandr Poliakov</Authors>
+    <TargetFrameworks>netstandard2.0;netcoreapp2.2;netstandard2.1;netcoreapp3.1</TargetFrameworks>
+    <AssemblyName>Prometheus.Client.HealthChecks</AssemblyName>
+    <PackageId>Prometheus.Client.HealthChecks</PackageId>
+    <PackageTags>prometheus;metrics</PackageTags>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/PrometheusClientNet/Prometheus.Client.HealthChecks</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/PrometheusClientNet/Prometheus.Client.HealthChecks</RepositoryUrl>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!--<SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>../Prometheus.Client.HealthChecks.snk</AssemblyOriginatorKeyFile>-->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="../icon.png">
+      <Pack>true</Pack>
+      <Visible>false</Visible>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Prometheus.Client" Version="4.1.0" />
+  </ItemGroup>
+</Project>

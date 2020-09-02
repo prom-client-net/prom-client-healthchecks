@@ -23,5 +23,4 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build --no-restore -c Release
-      - name: Tests
-        run: dotnet test --no-build -c Release
+        
