@@ -21,7 +21,7 @@ namespace Prometheus.Client.HealthChecks
         public PrometheusHealthCheckPublisher(PrometheusHealthCheckPublisherOptions options)
         {
             var metricFactory = new MetricFactory(options.CollectorRegistry);
-            
+
             _status = metricFactory.CreateGauge(options.StatusMetricName,
                 "Shows raw health check status (0 = Unhealthy, 1 = Degraded, 2 = Healthy)", "name");
             _duration = metricFactory.CreateGauge(options.DurationMetricName,

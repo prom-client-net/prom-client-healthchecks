@@ -11,12 +11,12 @@ namespace Prometheus.Client.HealthChecks
         ///     Metric name for Status
         /// </summary>
         public string StatusMetricName { get; set; }
-        
+
         /// <summary>
         ///     Metric name for Duration
         /// </summary>
         public string DurationMetricName { get; set; }
-        
+
         /// <summary>
         ///     Collector Registry
         /// </summary>
