@@ -1,0 +1,10 @@
+﻿*.user
+
+.vs
+.vscode
+.idea
+
+bin
+obj
+BenchmarkDotNet.Artifacts
+coverage.opencover.xml
