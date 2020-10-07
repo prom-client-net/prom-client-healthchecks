@@ -6,6 +6,24 @@
 [![CI](https://github.com/PrometheusClientNet/Prometheus.Client.HealthChecks/workflows/CI/badge.svg)](https://github.com/PrometheusClientNet/Prometheus.Client.HealthChecks/actions?query=workflow%3ACI)
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT) 
 
+## Installation
+```c#
+dotnet add package Prometheus.Client.HealthChecks
+```
+
+## Quick start
+
+```c#
+public void ConfigureServices(IServiceCollection services)
+{
+    services
+        .AddHealthChecks()
+        .WriteToPrometheus(); // just add this line
+}
+```
+
+Example [here](https://github.com/PrometheusClientNet/Prometheus.Client.Examples/tree/master/HealthChecks/HealthChecks_3.1)
+
 ## Contribute
 
 Contributions to the package are always welcome!
