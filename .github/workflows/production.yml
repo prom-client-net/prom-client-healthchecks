@@ -1,4 +1,4 @@
-name: "CI"
+name: CI
 
 on:
   push:
@@ -16,8 +16,8 @@ jobs:
       - name: Restore
         run: dotnet restore
       - name: Build
-        run: dotnet build -c Release
-      - name: Pack artifacts
+        run: dotnet build --no-restore -c Release
+      - name: Upload artifacts
         run: dotnet pack src/Prometheus.Client.HealthChecks.csproj -c Release --no-build -o artifacts/
       - name: Publish artifacts
         uses: actions/upload-artifact@v2
@@ -25,4 +25,4 @@ jobs:
           name: nupkg
           path: artifacts/*
       - name: Publish to NuGet
-        run: dotnet nuget push "artifacts/*.nupkg" --api-key ${{ secrets.NUGET_DEPLOY_KEY }} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push "artifacts/*.nupkg" -k ${{ secrets.NUGET_DEPLOY_KEY }} -s https://api.nuget.org/v3/index.json

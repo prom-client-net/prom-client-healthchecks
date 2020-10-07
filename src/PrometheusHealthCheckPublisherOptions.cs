@@ -20,7 +20,7 @@ namespace Prometheus.Client.HealthChecks
         /// <summary>
         ///     Collector Registry
         /// </summary>
-        public ICollectorRegistry? CollectorRegistry { get; set; } //todo: maybe IMetricFactory?
+        public ICollectorRegistry? CollectorRegistry { get; set; }
 
         /// <summary>
         ///     Constructor
