@@ -3,7 +3,7 @@
     <Description>HealthChecks middleware for the Prometheus.Client</Description>
     <Copyright>2020 © Serge K, Oleksandr Poliakov</Copyright>
     <AssemblyTitle>Prometheus.Client.HealthChecks</AssemblyTitle>
-    <VersionPrefix>0.2.0</VersionPrefix>
+    <VersionPrefix>0.3.0</VersionPrefix>
     <Authors>Serge K, Oleksandr Poliakov</Authors>
     <TargetFrameworks>netstandard2.0;netcoreapp2.2;netstandard2.1;netcoreapp3.1</TargetFrameworks>
     <AssemblyName>Prometheus.Client.HealthChecks</AssemblyName>
