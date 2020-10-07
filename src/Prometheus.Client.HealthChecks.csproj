@@ -16,8 +16,8 @@
     <RepositoryUrl>https://github.com/PrometheusClientNet/Prometheus.Client.HealthChecks</RepositoryUrl>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <!--<SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>../Prometheus.Client.HealthChecks.snk</AssemblyOriginatorKeyFile>-->
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>../Prometheus.Client.HealthChecks.snk</AssemblyOriginatorKeyFile>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
