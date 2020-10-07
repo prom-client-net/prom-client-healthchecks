@@ -1,29 +1,12 @@
-# EditorConfig is awesome: http://EditorConfig.org
-# Based on: https://github.com/dotnet/roslyn/blob/master/.editorconfig
-# https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
-# https://www.jetbrains.com/help/rider/Using_EditorConfig.html?Wave=183
-
 root = true
 
 [*]
 charset = utf-8
 end_of_line = lf
+indent_size = 2
 indent_style = space
 max_line_length = 180
 insert_final_newline = true
-
-# XML
-[{*.csproj, *.props, .ruleset}]
-indent_size = 2
-
-[{*.yml, *.yaml}]
-indent_size = 2
-
-[*.json]
-indent_size = 2
-
-[{*.sh, *.ps1}]
-indent_size = 2
 
 [*.cs]
 indent_size = 4
