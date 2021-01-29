@@ -5,7 +5,7 @@
     <AssemblyTitle>Prometheus.Client.HealthChecks</AssemblyTitle>
     <VersionPrefix>0.3.0</VersionPrefix>
     <Authors>Serge K, Oleksandr Poliakov</Authors>
-    <TargetFrameworks>netstandard2.0;netcoreapp2.2;netstandard2.1;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1</TargetFrameworks>
     <AssemblyName>Prometheus.Client.HealthChecks</AssemblyName>
     <PackageId>Prometheus.Client.HealthChecks</PackageId>
     <PackageTags>prometheus;metrics</PackageTags>
@@ -24,11 +24,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="../icon.png" Pack="true" Visible="false" PackagePath="" />
+    <None Include="../../icon.png">
+      <Pack>true</Pack>
+      <Visible>false</Visible>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="3.1.11" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="Prometheus.Client" Version="4.2.0" />
+    <PackageReference Include="Prometheus.Client" Version="4.3.0" />
   </ItemGroup>
 </Project>
