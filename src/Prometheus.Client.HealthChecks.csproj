@@ -24,7 +24,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="../../icon.png">
+    <None Include="../icon.png">
       <Pack>true</Pack>
       <Visible>false</Visible>
       <PackagePath></PackagePath>
