@@ -23,6 +23,8 @@ indent_size = 2
 [*.cs]
 indent_size = 4
 
+## Dotnet code style settings:
+
 # Sort using and Import directives with System.* appearing first
 dotnet_sort_system_directives_first = true
 # Avoid "this." and "Me." if not necessary
@@ -73,8 +75,9 @@ csharp_new_line_before_finally = true
 csharp_new_line_before_members_in_object_initializers = true
 csharp_new_line_before_members_in_anonymous_types = true
 
-# Naming
-# Private fields should be _camelCase
+## Naming
+
+# private fields should be _camelCase
 dotnet_naming_style.underscore_prefix.capitalization = camel_case
 dotnet_naming_style.underscore_prefix.required_prefix = _
 
