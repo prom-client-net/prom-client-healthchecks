@@ -19,7 +19,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\icon.png" Visible="false" Pack="true" PackagePath="" />
+    <None Include="..\icon.png" Visible="false" Pack="true" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Prometheus.Client" Version="[4.4.0,5.0.0)" />
