@@ -22,9 +22,9 @@ namespace Prometheus.Client.HealthChecks
             var metricFactory = new MetricFactory(options.CollectorRegistry);
 
             _status = metricFactory.CreateGauge(options.StatusMetricName,
-                "Shows raw health check status (0 = Unhealthy, 1 = Degraded, 2 = Healthy)", "name");
+                "Shows raw health check status (0 = Unhealthy, 1 = Degraded, 2 = Healthy)", ValueTuple.Create("name"));
             _duration = metricFactory.CreateGauge(options.DurationMetricName,
-                "Shows duration of the health check execution in seconds", "name");
+                "Shows duration of the health check execution in seconds", ValueTuple.Create("name"));
         }
 
         /// <inheritdoc />
