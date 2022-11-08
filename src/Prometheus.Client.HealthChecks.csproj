@@ -22,6 +22,6 @@
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="5.0.17" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="6.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="6.0.11" />
   </ItemGroup>
 </Project>
