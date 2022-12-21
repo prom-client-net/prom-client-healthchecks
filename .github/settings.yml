@@ -13,6 +13,11 @@ repository:
   enable_automated_security_fixes: false
   enable_vulnerability_alerts: true
 
+labels:
+  - name: dependencies
+    color: 0052CC
+    description: Issues related to dependencies & Renovate
+
 collaborators:
   - username: phnx47-bot
     # Direct push to 'main' branch. Try integrate automerge like this https://github.com/marketplace/actions/enable-github-automerge
