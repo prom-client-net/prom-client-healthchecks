@@ -12,3 +12,10 @@ repository:
   delete_branch_on_merge: true
   enable_automated_security_fixes: false
   enable_vulnerability_alerts: true
+
+collaborators:
+  - username: phnx47-bot
+    permission: push
+teams:
+  - name: devs
+    permission: maintain
