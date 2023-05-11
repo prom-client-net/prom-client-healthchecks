@@ -15,9 +15,9 @@ public static class ServiceCollectionExtensions
     {
         options ??= new PrometheusHealthCheckPublisherOptions();
 
-        services.AddSingleton<IHealthCheckPublisher, PrometheusHealthCheckPublisher>(provider =>
+        services.AddSingleton<IHealthCheckPublisher, PrometheusHealthCheckPublisher>(sp =>
         {
-            options.CollectorRegistry ??= provider.GetService<ICollectorRegistry>() ?? Metrics.DefaultCollectorRegistry;
+            options.CollectorRegistry ??= sp.GetService<ICollectorRegistry>() ?? Metrics.DefaultCollectorRegistry;
             return new PrometheusHealthCheckPublisher(options);
         });
 
