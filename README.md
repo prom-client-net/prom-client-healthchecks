@@ -17,9 +17,8 @@ dotnet add package Prometheus.Client.HealthChecks
 ```c#
 public void ConfigureServices(IServiceCollection services)
 {
-    services
-        .AddHealthChecks()
-        .WriteToPrometheus(); // just add this line
+    services.AddHealthChecks();
+    services.AddPrometheusHealthCheckPublisher();
 }
 ```
 
