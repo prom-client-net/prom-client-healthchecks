@@ -11,21 +11,18 @@ public class ServiceCollectionExtensionsTests
     private const string _defaultDurationMetricName = "healthcheck_duration_seconds";
 
     [Fact]
-    public void Check_AddPrometheusHealthCheckPublisher()
+    public void AddPrometheusHealthCheckPublisher()
     {
         var services = new ServiceCollection();
+        services.AddSingleton<ICollectorRegistry, CollectorRegistry>();
         services.AddPrometheusHealthCheckPublisher();
         var sp = services.BuildServiceProvider();
         var publisher = sp.GetService<IHealthCheckPublisher>();
         Assert.NotNull(publisher);
-
-        // Cleanup
-        Metrics.DefaultCollectorRegistry?.Remove(_defaultStatusMetricName);
-        Metrics.DefaultCollectorRegistry?.Remove(_defaultDurationMetricName);
     }
 
     [Fact]
-    public void Check_AddPrometheusHealthCheckPublisher_With_Default_CollectorRegistry()
+    public void AddPrometheusHealthCheckPublisher_With_Default_CollectorRegistry()
     {
         var services = new ServiceCollection();
         services.AddPrometheusHealthCheckPublisher();
@@ -43,12 +40,12 @@ public class ServiceCollectionExtensionsTests
     }
 
     [Fact]
-    public void Check_AddPrometheusHealthCheckPublisher_With_Custom_CollectorRegistry()
+    public void AddPrometheusHealthCheckPublisher_With_Custom_CollectorRegistry()
     {
         var registry = new CollectorRegistry();
 
         var services = new ServiceCollection();
-        services.AddPrometheusHealthCheckPublisher(new PrometheusHealthCheckPublisherOptions()
+        services.AddPrometheusHealthCheckPublisher(new PrometheusHealthCheckPublisherOptions
         {
             CollectorRegistry = registry
         });
@@ -65,7 +62,7 @@ public class ServiceCollectionExtensionsTests
     }
 
     [Fact]
-    public void Check_AddPrometheusHealthCheckPublisher_With_DI_CollectorRegistry()
+    public void AddPrometheusHealthCheckPublisher_With_DI_CollectorRegistry()
     {
         var registry = new CollectorRegistry();
 
