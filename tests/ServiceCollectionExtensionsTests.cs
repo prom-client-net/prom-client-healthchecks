@@ -28,8 +28,8 @@ public class ServiceCollectionExtensionsTests
         var publisher = sp.GetService<IHealthCheckPublisher>();
         Assert.NotNull(publisher);
 
-        Assert.True(Metrics.DefaultCollectorRegistry.TryGet(Consts.DefaultStatusMetricName, out var statusCollector));
-        Assert.True(Metrics.DefaultCollectorRegistry.TryGet(Consts.DefaultDurationMetricName, out var durationCollector));
+        Assert.True(Metrics.DefaultCollectorRegistry.TryGet(PrometheusHealthCheckPublisherOptions.DefaultStatusMetricName, out var statusCollector));
+        Assert.True(Metrics.DefaultCollectorRegistry.TryGet(PrometheusHealthCheckPublisherOptions.DefaultDurationMetricName, out var durationCollector));
 
         // Cleanup
         Metrics.DefaultCollectorRegistry?.Remove(statusCollector);
@@ -51,11 +51,11 @@ public class ServiceCollectionExtensionsTests
         var publisher = sp.GetService<IHealthCheckPublisher>();
         Assert.NotNull(publisher);
 
-        Assert.True(registry.TryGet(Consts.DefaultStatusMetricName, out _));
+        Assert.True(registry.TryGet(PrometheusHealthCheckPublisherOptions.DefaultStatusMetricName, out _));
         Assert.True(registry.TryGet("healthcheck_duration_seconds", out _));
 
-        Assert.False(Metrics.DefaultCollectorRegistry.TryGet(Consts.DefaultStatusMetricName, out _));
-        Assert.False(Metrics.DefaultCollectorRegistry.TryGet(Consts.DefaultDurationMetricName, out _));
+        Assert.False(Metrics.DefaultCollectorRegistry.TryGet(PrometheusHealthCheckPublisherOptions.DefaultStatusMetricName, out _));
+        Assert.False(Metrics.DefaultCollectorRegistry.TryGet(PrometheusHealthCheckPublisherOptions.DefaultDurationMetricName, out _));
     }
 
     [Fact]
@@ -71,10 +71,10 @@ public class ServiceCollectionExtensionsTests
         var publisher = sp.GetService<IHealthCheckPublisher>();
         Assert.NotNull(publisher);
 
-        Assert.True(registry.TryGet(Consts.DefaultStatusMetricName, out _));
-        Assert.True(registry.TryGet(Consts.DefaultDurationMetricName, out _));
+        Assert.True(registry.TryGet(PrometheusHealthCheckPublisherOptions.DefaultStatusMetricName, out _));
+        Assert.True(registry.TryGet(PrometheusHealthCheckPublisherOptions.DefaultDurationMetricName, out _));
 
-        Assert.False(Metrics.DefaultCollectorRegistry.TryGet(Consts.DefaultStatusMetricName, out _));
-        Assert.False(Metrics.DefaultCollectorRegistry.TryGet(Consts.DefaultDurationMetricName, out _));
+        Assert.False(Metrics.DefaultCollectorRegistry.TryGet(PrometheusHealthCheckPublisherOptions.DefaultStatusMetricName, out _));
+        Assert.False(Metrics.DefaultCollectorRegistry.TryGet(PrometheusHealthCheckPublisherOptions.DefaultDurationMetricName, out _));
     }
 }
