@@ -1,32 +1,22 @@
+using System;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Prometheus.Client.Collectors;
 
-namespace Prometheus.Client.HealthChecks
+namespace Prometheus.Client.HealthChecks;
+
+/// <summary>
+///     Extensions for IHealthChecksBuilder
+/// </summary>
+public static class HealthCheckBuilderExtensions
 {
     /// <summary>
-    ///     Extensions for IHealthChecksBuilder
+    ///     Write data to Prometheus
     /// </summary>
-    public static class HealthCheckBuilderExtensions
+    /// <param name="builder">IHealthChecksBuilder</param>
+    /// <param name="options">PrometheusHealthCheckPublisherOptions</param>
+    [Obsolete("Use AddPrometheusHealthCheckPublisher(this IServiceCollection services, PrometheusHealthCheckPublisherOptions? options = null) instead.")]
+    public static IHealthChecksBuilder WriteToPrometheus(this IHealthChecksBuilder builder, PrometheusHealthCheckPublisherOptions? options = null)
     {
-        /// <summary>
-        ///     Write data to Prometheus
-        /// </summary>
-        /// <param name="builder">IHealthChecksBuilder</param>
-        /// <param name="options">PrometheusHealthCheckPublisherOptions</param>
-        public static IHealthChecksBuilder WriteToPrometheus(this IHealthChecksBuilder builder, PrometheusHealthCheckPublisherOptions? options = null)
-        {
-            options ??= new PrometheusHealthCheckPublisherOptions();
-
-            builder.Services.AddSingleton<IHealthCheckPublisher, PrometheusHealthCheckPublisher>(provider =>
-            {
-                options.CollectorRegistry
-                    ??= provider.GetService<ICollectorRegistry>()
-                        ?? Metrics.DefaultCollectorRegistry;
-                return new PrometheusHealthCheckPublisher(options);
-            });
-
-            return builder;
-        }
+        builder.Services.AddPrometheusHealthCheckPublisher(options);
+        return builder;
     }
 }

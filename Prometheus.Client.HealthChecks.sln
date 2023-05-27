@@ -3,35 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9B8DF098-8EB1-47D8-8D7D-2D6774537589}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prometheus.Client.HealthChecks", "src\Prometheus.Client.HealthChecks.csproj", "{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{B8F8D9D6-1BEE-422D-AF5E-6CD7AD9E0D40}"
-ProjectSection(SolutionItems) = preProject
-	Directory.Build.props = Directory.Build.props
-	LICENSE = LICENSE
-	README.md = README.md
-	stylecop.json = stylecop.json
-	.ruleset = .ruleset
-	.gitignore = .gitignore
-	.gitattributes = .gitattributes
-	.editorconfig = .editorconfig
-EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prometheus.Client.HealthChecks", "src\Prometheus.Client.HealthChecks.csproj", "{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{0B0C161B-E7EB-4CE7-9741-0587BF1596DB}"
-ProjectSection(SolutionItems) = preProject
-	.github\CODEOWNERS = .github\CODEOWNERS
-	.github\FUNDING.yml = .github\FUNDING.yml
-	.github\renovate.json = .github\renovate.json
-EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{C387DDBC-5C3C-40E3-A9DB-B7F31E3DD066}"
-ProjectSection(SolutionItems) = preProject
-	.github\workflows\master.yml = .github\workflows\master.yml
-	.github\workflows\pr.yml = .github\workflows\pr.yml
-	.github\workflows\prod.yml = .github\workflows\prod.yml
-EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prometheus.Client.HealthChecks.Tests", "tests\Prometheus.Client.HealthChecks.Tests.csproj", "{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,22 +20,31 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7} = {9B8DF098-8EB1-47D8-8D7D-2D6774537589}
-		{0B0C161B-E7EB-4CE7-9741-0587BF1596DB} = {B8F8D9D6-1BEE-422D-AF5E-6CD7AD9E0D40}
-		{C387DDBC-5C3C-40E3-A9DB-B7F31E3DD066} = {0B0C161B-E7EB-4CE7-9741-0587BF1596DB}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}.Debug|x64.Build.0 = Debug|Any CPU
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}.Debug|x86.Build.0 = Debug|Any CPU
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}.Release|x64.ActiveCfg = Release|Any CPU
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}.Release|x64.Build.0 = Release|Any CPU
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}.Release|x86.ActiveCfg = Release|Any CPU
-		{5D95C99D-19A6-44E8-BDFC-75E43BBA28E7}.Release|x86.Build.0 = Release|Any CPU
+		{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}.Debug|x64.Build.0 = Debug|Any CPU
+		{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}.Debug|x86.Build.0 = Debug|Any CPU
+		{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}.Release|x64.ActiveCfg = Release|Any CPU
+		{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}.Release|x64.Build.0 = Release|Any CPU
+		{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}.Release|x86.ActiveCfg = Release|Any CPU
+		{BBC3CF85-2DCA-4AB9-8987-25AFD099289A}.Release|x86.Build.0 = Release|Any CPU
+		{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}.Debug|x64.Build.0 = Debug|Any CPU
+		{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}.Debug|x86.Build.0 = Debug|Any CPU
+		{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}.Release|x64.ActiveCfg = Release|Any CPU
+		{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}.Release|x64.Build.0 = Release|Any CPU
+		{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}.Release|x86.ActiveCfg = Release|Any CPU
+		{D7A9DFD0-8284-46C4-9AF9-46CC8673F61D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
