@@ -7,7 +7,7 @@
     <SignAssembly>true</SignAssembly>
     <InvariantGlobalization>true</InvariantGlobalization>
     <AssemblyOriginatorKeyFile>../Prometheus.Client.HealthChecks.snk</AssemblyOriginatorKeyFile>
-    <NoWarn>$(NoWarn);CS0618;NETSDK1138</NoWarn>
+    <NoWarn>$(NoWarn);CS0618</NoWarn>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1' OR '$(TargetFramework)' == 'netcoreapp3.1'">
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.32" />
@@ -33,11 +33,11 @@
     <PackageReference Include="xunit" Version="2.4.2" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp2.1'">
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.*" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
   </ItemGroup>
   <ItemGroup>
