@@ -13,8 +13,8 @@ public static class HealthCheckBuilderExtensions
     /// </summary>
     /// <param name="builder">IHealthChecksBuilder</param>
     /// <param name="options">PrometheusHealthCheckPublisherOptions</param>
-    [Obsolete("Use HealthChecksWriteToPrometheus(this IServiceCollection services, PrometheusHealthCheckPublisherOptions? options = null) instead.")]
-    public static IHealthChecksBuilder AddPrometheusHealthCheckPublisher(this IHealthChecksBuilder builder, PrometheusHealthCheckPublisherOptions? options = null)
+    [Obsolete("Use AddPrometheusHealthCheckPublisher(this IServiceCollection services, PrometheusHealthCheckPublisherOptions? options = null) instead.")]
+    public static IHealthChecksBuilder WriteToPrometheus(this IHealthChecksBuilder builder, PrometheusHealthCheckPublisherOptions? options = null)
     {
         builder.Services.AddPrometheusHealthCheckPublisher(options);
         return builder;
