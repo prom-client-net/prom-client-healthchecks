@@ -7,8 +7,8 @@ namespace Prometheus.Client.HealthChecks;
 /// </summary>
 public class PrometheusHealthCheckPublisherOptions
 {
-    public const string DefaultStatusMetricName = "healthcheck_status";
-    public const string DefaultDurationMetricName = "healthcheck_duration_seconds";
+    internal const string DefaultStatusMetricName = "healthcheck_status";
+    internal const string DefaultDurationMetricName = "healthcheck_duration_seconds";
 
     /// <summary>
     ///     Metric name for Status
