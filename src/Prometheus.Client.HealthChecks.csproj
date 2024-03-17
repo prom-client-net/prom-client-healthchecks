@@ -20,13 +20,13 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions " Version="5.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="6.0.27" />
-    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="6.0.27" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="6.0.28" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="6.0.28" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions " Version="6.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
-    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="7.0.16" />
-    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="7.0.16" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="7.0.17" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="7.0.17" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions " Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
