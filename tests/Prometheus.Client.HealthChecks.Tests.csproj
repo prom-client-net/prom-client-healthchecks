@@ -24,8 +24,6 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\src\Prometheus.Client.HealthChecks.csproj" />
   </ItemGroup>
 </Project>
