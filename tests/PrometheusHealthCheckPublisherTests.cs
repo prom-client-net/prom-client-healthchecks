@@ -69,6 +69,9 @@ public class PrometheusHealthCheckPublisherTests
             .Replace("[[status]]", ((int)status).ToString())
             .Replace("[[duration]]", durationSec.ToString());
 
+#if Windows
+        expected = expected.Replace("\r\n", "\n");
+#endif
         var publisher = new PrometheusHealthCheckPublisher(_options);
 
         var entries = new Dictionary<string, HealthReportEntry>

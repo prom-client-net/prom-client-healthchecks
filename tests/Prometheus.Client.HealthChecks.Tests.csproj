@@ -1,10 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks Condition="'$(OS)' == 'Unix'">net6.0;net8.0</TargetFrameworks>
-    <TargetFrameworks Condition="'$(OS)' != 'Unix'">net462;net6.0;net8.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <InvariantGlobalization>true</InvariantGlobalization>
     <NoWarn>$(NoWarn);CS0618</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(OS)' == 'Unix'">
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(OS)' != 'Unix'">
+    <TargetFrameworks>net462;net6.0;net8.0</TargetFrameworks>
+    <DefineConstants>$(DefineConstants);Windows</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
