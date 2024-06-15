@@ -53,25 +53,25 @@ public class PrometheusHealthCheckPublisherTests
     [InlineData("key", HealthStatus.Degraded, 1)]
     public async Task Publisher_Publish_Correct_Result(string key, HealthStatus status, int durationSec)
     {
-        const string tmpl = """
-                            # HELP [[durationMetricName]] Shows duration of the health check execution in seconds
-                            # TYPE [[durationMetricName]] gauge
-                            [[durationMetricName]]{name="[[key]]"} [[duration]]
-                            # HELP [[statusMetricName]] Shows raw health check status (0 = Unhealthy, 1 = Degraded, 2 = Healthy)
-                            # TYPE [[statusMetricName]] gauge
-                            [[statusMetricName]]{name="[[key]]"} [[status]]
 
-                            """;
-        var expected = tmpl
+        var expected = """
+                         # HELP [[durationMetricName]] Shows duration of the health check execution in seconds
+                         # TYPE [[durationMetricName]] gauge
+                         [[durationMetricName]]{name="[[key]]"} [[duration]]
+                         # HELP [[statusMetricName]] Shows raw health check status (0 = Unhealthy, 1 = Degraded, 2 = Healthy)
+                         # TYPE [[statusMetricName]] gauge
+                         [[statusMetricName]]{name="[[key]]"} [[status]]
+
+                         """;
+
+        expected = expected
             .Replace("[[durationMetricName]]", PrometheusHealthCheckPublisherOptions.DefaultDurationMetricName)
             .Replace("[[statusMetricName]]", PrometheusHealthCheckPublisherOptions.DefaultStatusMetricName)
             .Replace("[[key]]", key)
             .Replace("[[status]]", ((int)status).ToString())
             .Replace("[[duration]]", durationSec.ToString());
 
-#if Windows
-        expected = expected.Replace("\r\n", "\n");
-#endif
+
         var publisher = new PrometheusHealthCheckPublisher(_options);
 
         var entries = new Dictionary<string, HealthReportEntry>
@@ -85,6 +85,6 @@ public class PrometheusHealthCheckPublisherTests
         await ScrapeHandler.ProcessAsync(_registry, stream);
 
         var actual = Encoding.UTF8.GetString(stream.ToArray());
-        Assert.Equal(expected, actual);
+        Assert.Equal(expected.ReplaceLineEndings("\n"), actual);
     }
 }
