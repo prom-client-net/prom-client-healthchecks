@@ -53,13 +53,15 @@ public class PrometheusHealthCheckPublisherTests
     [InlineData("key", HealthStatus.Degraded, 1)]
     public async Task Publisher_Publish_Correct_Result(string key, HealthStatus status, int durationSec)
     {
-        const string tmpl = @"# HELP [[durationMetricName]] Shows duration of the health check execution in seconds
-# TYPE [[durationMetricName]] gauge
-[[durationMetricName]]{name=""[[key]]""} [[duration]]
-# HELP [[statusMetricName]] Shows raw health check status (0 = Unhealthy, 1 = Degraded, 2 = Healthy)
-# TYPE [[statusMetricName]] gauge
-[[statusMetricName]]{name=""[[key]]""} [[status]]
-";
+        const string tmpl = """
+                            # HELP [[durationMetricName]] Shows duration of the health check execution in seconds
+                            # TYPE [[durationMetricName]] gauge
+                            [[durationMetricName]]{name="[[key]]"} [[duration]]
+                            # HELP [[statusMetricName]] Shows raw health check status (0 = Unhealthy, 1 = Degraded, 2 = Healthy)
+                            # TYPE [[statusMetricName]] gauge
+                            [[statusMetricName]]{name="[[key]]"} [[status]]
+
+                            """;
         var expected = tmpl
             .Replace("[[durationMetricName]]", PrometheusHealthCheckPublisherOptions.DefaultDurationMetricName)
             .Replace("[[statusMetricName]]", PrometheusHealthCheckPublisherOptions.DefaultStatusMetricName)
