@@ -14,6 +14,7 @@ public class PrometheusHealthCheckPublisherTests
 {
     private readonly ICollectorRegistry _registry;
     private readonly PrometheusHealthCheckPublisherOptions _options;
+    private PrometheusHealthCheckPublisher _publisher;
 
     public PrometheusHealthCheckPublisherTests()
     {
@@ -27,7 +28,7 @@ public class PrometheusHealthCheckPublisherTests
     [Fact]
     public void Publisher_Register_Metrics()
     {
-        var publisher = new PrometheusHealthCheckPublisher(_options);
+        _publisher = new PrometheusHealthCheckPublisher(_options);
         Assert.True(_registry.TryGet(PrometheusHealthCheckPublisherOptions.DefaultStatusMetricName, out _));
         Assert.True(_registry.TryGet(PrometheusHealthCheckPublisherOptions.DefaultDurationMetricName, out _));
     }
@@ -40,8 +41,7 @@ public class PrometheusHealthCheckPublisherTests
     {
         _options.StatusMetricName = statusMetricName;
         _options.DurationMetricName = durationMetricName;
-
-        var publisher = new PrometheusHealthCheckPublisher(_options);
+        _publisher = new PrometheusHealthCheckPublisher(_options);
         Assert.True(_registry.TryGet(statusMetricName, out _));
         Assert.True(_registry.TryGet(durationMetricName, out _));
     }
@@ -53,33 +53,32 @@ public class PrometheusHealthCheckPublisherTests
     [InlineData("key", HealthStatus.Degraded, 1)]
     public async Task Publisher_Publish_Correct_Result(string key, HealthStatus status, int durationSec)
     {
-        const string tmpl = """
-                            # HELP [[durationMetricName]] Shows duration of the health check execution in seconds
-                            # TYPE [[durationMetricName]] gauge
-                            [[durationMetricName]]{name="[[key]]"} [[duration]]
-                            # HELP [[statusMetricName]] Shows raw health check status (0 = Unhealthy, 1 = Degraded, 2 = Healthy)
-                            # TYPE [[statusMetricName]] gauge
-                            [[statusMetricName]]{name="[[key]]"} [[status]]
+        var expected = """
+                         # HELP [[durationMetricName]] Shows duration of the health check execution in seconds
+                         # TYPE [[durationMetricName]] gauge
+                         [[durationMetricName]]{name="[[key]]"} [[duration]]
+                         # HELP [[statusMetricName]] Shows raw health check status (0 = Unhealthy, 1 = Degraded, 2 = Healthy)
+                         # TYPE [[statusMetricName]] gauge
+                         [[statusMetricName]]{name="[[key]]"} [[status]]
 
-                            """;
-        var expected = tmpl
+                         """;
+
+        expected = expected
             .Replace("[[durationMetricName]]", PrometheusHealthCheckPublisherOptions.DefaultDurationMetricName)
             .Replace("[[statusMetricName]]", PrometheusHealthCheckPublisherOptions.DefaultStatusMetricName)
             .Replace("[[key]]", key)
             .Replace("[[status]]", ((int)status).ToString())
-            .Replace("[[duration]]", durationSec.ToString());
+            .Replace("[[duration]]", durationSec.ToString())
+            .ToUnixLineEndings();
 
-#if Windows
-        expected = expected.Replace("\r\n", "\n");
-#endif
-        var publisher = new PrometheusHealthCheckPublisher(_options);
+        _publisher = new PrometheusHealthCheckPublisher(_options);
 
         var entries = new Dictionary<string, HealthReportEntry>
         {
             { key, new HealthReportEntry(status, string.Empty, TimeSpan.FromSeconds(durationSec), null, null) }
         };
         var report = new HealthReport(entries, TimeSpan.FromSeconds(1));
-        await publisher.PublishAsync(report, CancellationToken.None);
+        await _publisher.PublishAsync(report, CancellationToken.None);
 
         using var stream = new MemoryStream();
         await ScrapeHandler.ProcessAsync(_registry, stream);
