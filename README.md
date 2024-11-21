@@ -4,7 +4,6 @@
 [![nuget](https://img.shields.io/nuget/v/Prometheus.Client.HealthChecks?logo=nuget&style=flat-square)](https://www.nuget.org/packages/Prometheus.Client.HealthChecks)
 [![nuget](https://img.shields.io/nuget/dt/Prometheus.Client.HealthChecks?logo=nuget&style=flat-square)](https://www.nuget.org/packages/Prometheus.Client.HealthChecks)
 [![codecov](https://img.shields.io/codecov/c/github/prom-client-net/prom-client-healthchecks?logo=codecov&style=flat-square)](https://app.codecov.io/gh/prom-client-net/prom-client-healthchecks)
-[![codefactor](https://img.shields.io/codefactor/grade/github/prom-client-net/prom-client-healthchecks?logo=codefactor&style=flat-square)](https://www.codefactor.io/repository/github/prom-client-net/prom-client-healthchecks)
 [![license](https://img.shields.io/github/license/prom-client-net/prom-client-healthchecks?style=flat-square)](https://github.com/prom-client-net/prom-client-healthchecks/blob/main/LICENSE)
 
 ## Installation
@@ -13,7 +12,9 @@
 dotnet add package Prometheus.Client.HealthChecks
 ```
 
-## Quick start
+## Use
+
+There are [Examples](https://github.com/prom-client-net/prom-examples)
 
 ```c#
 public void ConfigureServices(IServiceCollection services)
@@ -22,8 +23,6 @@ public void ConfigureServices(IServiceCollection services)
     services.AddPrometheusHealthCheckPublisher();
 }
 ```
-
-Example [here](https://github.com/prom-client-net/prom-examples)
 
 ## Contribute
 
