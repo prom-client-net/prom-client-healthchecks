@@ -6,7 +6,7 @@
 [![codecov](https://img.shields.io/codecov/c/github/prom-client-net/prom-client-healthchecks?logo=codecov&style=flat-square)](https://app.codecov.io/gh/prom-client-net/prom-client-healthchecks)
 [![license](https://img.shields.io/github/license/prom-client-net/prom-client-healthchecks?style=flat-square)](https://github.com/prom-client-net/prom-client-healthchecks/blob/main/LICENSE)
 
-## Installation
+## Install
 
 ```sh
 dotnet add package Prometheus.Client.HealthChecks
@@ -14,7 +14,7 @@ dotnet add package Prometheus.Client.HealthChecks
 
 ## Use
 
-There are [Examples](https://github.com/prom-client-net/prom-examples)
+[Examples](https://github.com/prom-client-net/prom-examples)
 
 ```c#
 public void ConfigureServices(IServiceCollection services)
