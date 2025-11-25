@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>Implements IHealthCheckPublisher for Prometheus.Client</Description>
-    <TargetFrameworks>net462;netstandard2.0;net6.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net462;netstandard2.0;net8.0</TargetFrameworks>
     <RepositoryUrl>https://github.com/prom-client-net/prom-client-healthchecks</RepositoryUrl>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <Nullable>enable</Nullable>
@@ -12,10 +12,6 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'net462' OR '$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="3.1.32" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions " Version="3.1.32" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="6.0.36" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions " Version="6.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="8.0.22" />
